@@ -1,15 +1,17 @@
 import './global.css'
 import styles from './App.module.css'
 
-import { Post, PostProps } from './components/Post.jsx'
+import { Post } from './components/Post.jsx'
 import { Header } from "./components/Header"
 import { Sidebar } from "./components/Sidebar"
+import { PostProps } from './interfaces/IPost'
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
   const posts: PostProps[] = [
     {
-      id: 1,
+      id: uuidv4(),
       author: {
         name: 'Thiago Carlos',
         role: 'Fullstack Dev',
@@ -23,7 +25,7 @@ function App() {
       ]
     },
     {
-      id: 2,
+      id: uuidv4(),
       author: {
         name: 'André Teixeira',
         role: 'Java Developer',
