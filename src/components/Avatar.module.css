@@ -1,0 +1,17 @@
+.noBorder {
+    top: 2.5rem;
+    height: 3.75rem;
+    width: 3.75rem;
+    border-radius: 8px;
+
+}
+
+.hasBorder {
+    top: 2.5rem;
+    height: 3.75rem;
+    width: 3.75rem;
+    border-radius: 8px;
+    border: 2px solid var(--gray-700);
+    outline: 2px solid var(--green-500);
+}
+
