@@ -1,9 +1,10 @@
 import { ArrowSquareOut } from 'phosphor-react'
 import styles from './CommentBox.module.css'
+import { CommentProps } from './Post';
 
-export function renderComment(comments) {
 
-    return comments.map((comment, idx = comment) => {
+export function renderComment(comments: CommentProps[]) {
+    return comments.map((comment, idx: any = comment) => {
         if (comment.type === 'paragraph') {
             return (
                 <p key={idx}>{comment.text}</p>

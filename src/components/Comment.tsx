@@ -2,21 +2,31 @@ import styles from './Comment.module.css'
 import { useState } from 'react'
 import { Trash, ThumbsUp } from 'phosphor-react'
 import { Avatar } from './Avatar'
-import { dateRelativeToNowFormatted, dateTimeISO, titleDateFormatted } from '../Utils/formatDate'
+import { titleDateFormatted, dateTimeISO, dateRelativeToNowFormatted } from '../Utils/formatDate'
 import { renderComment } from './CommentBox'
 
+import { AuthorProps, CommentProps } from './Post'
+export interface ContentProps {
+    id: number;
+    author: AuthorProps;
+    comments: CommentProps[];
+    dateTime: Date;
+    likes?: number;
+    onDeletedComment: (id: number) => void;
+}
 
-export function Comment({ id, dateTime, author, comments, onDeletedComment }) {
+
+export function Comment({ id, dateTime, author, comments, onDeletedComment }: ContentProps) {
     const [clapNumber, setClapNumber] = useState(0)
-    
-    function handleDeleteComment(){
+
+    function handleDeleteComment() {
         onDeletedComment(id)
     }
-    
+
     return (
 
         <div className={styles.comment}>
-            <Avatar url={author.avatarUrl} />
+            <Avatar src={author.avatarUrl} />
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
                     <header>

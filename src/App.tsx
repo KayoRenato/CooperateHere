@@ -1,13 +1,13 @@
 import './global.css'
 import styles from './App.module.css'
 
-import { Post } from './components/Post.jsx'
+import { Post, PostProps } from './components/Post.jsx'
 import { Header } from "./components/Header"
 import { Sidebar } from "./components/Sidebar"
 
 function App() {
 
-  const posts = [
+  const posts: PostProps[] = [
     {
       id: 1,
       author: {
@@ -19,7 +19,7 @@ function App() {
       comments: [
         { type: 'paragraph', text: 'Hey Guys 🤟🏼' },
         { type: 'paragraph', text: `Another project for my portfolio! It's a project made with Next. I will be happy if you rate and comment on improvements.` },
-        { type: 'link', title: 'Crud Next',  url: 'https://crudnext.kayoio.com' },
+        { type: 'link', title: 'Crud Next', url: 'https://crudnext.kayoio.com' },
       ]
     },
     {
@@ -47,6 +47,7 @@ function App() {
           {posts.map(post => {
             return (
               <Post key={post.id}
+                id={post.id}
                 author={post.author}
                 publishedAt={post.publishedAt}
                 comments={post.comments}

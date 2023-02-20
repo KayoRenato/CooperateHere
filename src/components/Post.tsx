@@ -1,15 +1,34 @@
 import styles from './Post.module.css'
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 import { Avatar } from "./Avatar";
-import { Comment } from './Comment'
+import { Comment, ContentProps } from './Comment'
 import { renderComment } from './CommentBox';
 import { dateRelativeToNowFormatted, titleDateFormatted, dateTimeISO } from '../Utils/formatDate';
 
+export interface PostProps {
+    id: number;
+    author: AuthorProps;
+    publishedAt: Date;
+    comments: CommentProps[];
+}
 
-export function Post({ author, publishedAt, comments }) {
+export interface AuthorProps {
+    name: string;
+    role?: string;
+    avatarUrl?: string;
+}
 
-    const commentsList = [
+export interface CommentProps {
+    type: string;
+    text?: string;
+    title?: string;
+    url?: string;
+}
+
+export function Post({ author, publishedAt, comments }: PostProps) {
+
+    const commentsList: PostProps[] = [
         {
             id: 1,
             author: { name: 'Pandora' },
@@ -17,7 +36,7 @@ export function Post({ author, publishedAt, comments }) {
                 { type: 'paragraph', text: 'Hello folk,' },
                 { type: 'paragraph', text: 'Great Job!' }
             ],
-            dateTime: new Date('2023-02-17 03:12:56')
+            publishedAt: new Date('2023-02-17 03:12:56')
         },
         {
             id: 2,
@@ -28,7 +47,7 @@ export function Post({ author, publishedAt, comments }) {
             comments: [
                 { type: 'paragraph', text: 'Congratulations 👏🏼' }
             ],
-            dateTime: new Date('2023-02-17 11:02:32')
+            publishedAt: new Date('2023-02-17 11:02:32')
         },
         {
             id: 3,
@@ -39,7 +58,7 @@ export function Post({ author, publishedAt, comments }) {
             comments: [
                 { type: 'paragraph', text: 'Thanks Guys 🤟🏼' }
             ],
-            dateTime: new Date('2023-02-18 21:03:12')
+            publishedAt: new Date('2023-02-18 21:03:12')
         },
     ]
 
@@ -47,9 +66,10 @@ export function Post({ author, publishedAt, comments }) {
     const [showComments, setShowComments] = useState(commentsList);
     const [numbComments, setNumbComments] = useState(showComments.length);
 
-    function handleCreateNewComment() {
+    function handleCreateNewComment(event: FormEvent) {
         event.preventDefault()
-        const commentStructure = {
+
+        const commentStructure: ContentProps = {
             id: setNumbComments(numbComments + 1),
             author: {
                 name: 'Kayo Renato',
@@ -65,15 +85,15 @@ export function Post({ author, publishedAt, comments }) {
         setNewComment('');
     }
 
-    function handleNewCommentChange() {
+    function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
         setNewComment(event.target.value);
     }
 
-    function handleDeleteComment(commentToDelete) {
-        const commentsLastDeleded = showComments.filter(comment => {
+    function handleDeleteComment(commentToDelete: number) {
+        const commentsLastDeleted = showComments.filter(comment => {
             return comment.id !== commentToDelete
         })
-        setShowComments(commentsLastDeleded);
+        setShowComments(commentsLastDeleted);
 
     }
 
@@ -83,7 +103,7 @@ export function Post({ author, publishedAt, comments }) {
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar url={author.avatarUrl} hasBorder />
+                    <Avatar src={author.avatarUrl} hasBorder />
                     <div>
                         <strong>{author.name}</strong>
                         <span>{author.role}</span>
@@ -99,7 +119,7 @@ export function Post({ author, publishedAt, comments }) {
                 <form onSubmit={handleCreateNewComment}>
                     <textarea
                         placeholder='Send your feedback...'
-                        rows="5"
+                        rows={5}
                         name='comment'
                         value={newComment}
                         onChange={handleNewCommentChange}
@@ -118,7 +138,7 @@ export function Post({ author, publishedAt, comments }) {
                             id={item.id}
                             author={item.author}
                             comments={item.comments}
-                            dateTime={item.dateTime}
+                            dateTime={item.publishedAt}
                             onDeletedComment={handleDeleteComment}
                         />
                     )
