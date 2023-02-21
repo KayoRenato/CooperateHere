@@ -1,6 +1,15 @@
 <h4 align="center">
 📝 Cooperate Here 📝
 </h4>
+<!-- <div align="center">
+
+  [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kayo-renato/)
+
+  [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KayoRenato)
+
+  [![Peerlist](https://github-readme-badge.peerlist.io/api/kayoio?style=for-the-badge)](https://peerlist.io/kayoio)
+</div> -->
+
 
 <hr>
 
