@@ -1,0 +1,47 @@
+.sidebarLogin {
+    background: var(--gray-100);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cover {
+    width: 100%;
+    height: 4.5rem;
+    object-fit: cover;
+    opacity: .95;
+}
+
+.sidebarLogin footer {
+    border-top: 1px solid var(--gray-300);
+    padding: 1.5rem 2rem 2rem;
+}
+
+.sidebarLogin footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 3.125rem;
+    padding: 0 1.5rem;
+
+    background: transparent;
+    color: var(--green-500);
+
+    border: 1px solid var(--green-500);
+    border-radius: 8px;
+
+    font-weight: bold;
+    text-align: center;
+    gap: 0.625rem;
+
+    text-decoration: none;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebarLogin footer a:hover{
+    background: var(--green-500);
+    color: var(--white);
+} 
+

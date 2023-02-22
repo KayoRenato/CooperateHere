@@ -8,40 +8,51 @@
 
 .cover {
     width: 100%;
-    height: 4.5rem;
+    height: 8.375rem;
     object-fit: cover;
     opacity: .95;
 }
 
-.profile {
+.formProfile {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: var(--gray-700);
-    margin-top: 3rem;
 }
 
-.profile strong {
-    line-height: 1.6;
+.formContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem 2rem;
+
+    width: 100%;
+
 }
 
-.profile span {
-    font-size: 0.875rem;
-    line-height: 1.6;
+.formContent input {
+    padding: 1rem;
+    width: 100%;
+    height: 3.125rem;
+
+    border: 1px solid var(--green-500);
+    border-radius: 8px;
 }
 
-.profile img {
-    position: absolute;
-    top: 2.5rem;
+.formContent>strong {
+    width: 100%;
+    margin: 1rem 0 .25rem;
+
 }
 
-.sidebar footer {
+.formProfile footer {
     border-top: 1px solid var(--gray-300);
-    margin-top: 1.5rem;
+    width: 100%;
     padding: 1.5rem 2rem 2rem;
 }
 
-.sidebar footer a {
+.formProfile footer button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,6 +64,8 @@
 .editProfile {
     background: transparent;
     color: var(--green-500);
+
+    width: 100%;
 
     border: 1px solid var(--green-500);
     border-radius: 8px;
@@ -66,10 +79,10 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-.editProfile:hover{
+.editProfile:hover {
     background: var(--green-500);
     color: var(--white);
-} 
+}
 
 .signOut {
     background: transparent;
@@ -87,11 +100,7 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-.signOut:hover{
+.signOut:hover {
     background: var(--red-500);
     color: var(--white);
-} 
-
-footer a + a{
-    margin-top: 1.5rem;
 }

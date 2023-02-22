@@ -6,6 +6,8 @@ import { Header } from "./components/Header"
 import { Sidebar } from "./components/Sidebar"
 import { PostProps } from './interfaces/IPost'
 import { v4 as uuidv4 } from 'uuid';
+import { SidebarLogin } from './components/SidebarLogin'
+import { SidebarForm } from './components/SidebarForm'
 
 function App() {
 
@@ -44,7 +46,13 @@ function App() {
     <>
       <Header />
       <div className={styles.wrapper}>
-        <Sidebar />
+        <div>
+          <SidebarLogin />
+          <br />
+          <SidebarForm />
+          <br />
+          <Sidebar />
+        </div>
         <main>
           {posts.map(post => {
             return (

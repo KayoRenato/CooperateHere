@@ -1,5 +1,5 @@
 import styles from './Post.module.css'
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 import { HandsClapping } from 'phosphor-react'
@@ -48,7 +48,6 @@ export function Post({ author, publishedAt, comments }: PostProps) {
     const [showComments, setShowComments] = useState(commentsList);
     const isNewCommentEmpty = newComment.length === 0;
 
-
     function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
         setNewComment(event.target.value);
     }
@@ -56,13 +55,15 @@ export function Post({ author, publishedAt, comments }: PostProps) {
     function handleCreateNewComment(event: FormEvent) {
         event.preventDefault()
 
+        const treatedComment = newComment.split('\n')
+
         const currentComment: CommentProps = {
             id: uuidv4(),
             author: {
                 name: 'Kayo Renato',
                 avatarUrl: 'https://github.com/KayoRenato.png'
             },
-            comments: [newComment],
+            comments: treatedComment,
             publishedAt: new Date()
         }
 
@@ -77,6 +78,7 @@ export function Post({ author, publishedAt, comments }: PostProps) {
         setShowComments(commentsLastDeleted);
 
     }
+
 
     return (
         <article className={styles.post}>
@@ -120,6 +122,7 @@ export function Post({ author, publishedAt, comments }: PostProps) {
             </div>
             <div className={styles.commentList}>
                 {showComments.map(item => {
+                    // console.log(item)
                     return (
                         <Comment
                             key={item.id}

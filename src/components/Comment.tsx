@@ -5,15 +5,22 @@ import { titleDateFormatted, dateTimeISO, dateRelativeToNowFormatted } from '../
 import { CommentProps } from '../interfaces/IComment'
 
 
+
 export function Comment({ id, publishedAt, author, comments, onDeletedComment }: CommentProps) {
 
     function handleDeleteComment() {
         onDeletedComment!(id)
     }
 
-    function renderComments(userComment: string[]) {
-
+    function renderComments(userComment: string[]): any {
+        console.log(userComment)
+        const comments = userComment.map(comment => {
+            console.log(comment)
+            return <p key={comment}>{comment}</p>
+        })
+ 
     }
+
 
     return (
         <div className={styles.comment}>
@@ -29,7 +36,7 @@ export function Comment({ id, publishedAt, author, comments, onDeletedComment }:
                             <Trash size={20} weight="light" />
                         </button>
                     </header>
-                    <div>
+                    <div className={styles.cooperation}>
                         {renderComments(comments)}
                     </div>
                 </div>

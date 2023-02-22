@@ -54,6 +54,13 @@
     line-height: 1.6;
 }
 
+.commentContent .cooperation {
+    margin: 1rem 0;
+    font-size: .875rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+}
+
 .commentBox footer {
     margin: 1rem 0;
 }
