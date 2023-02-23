@@ -17,12 +17,13 @@
     padding: 1.5rem 2rem 2rem;
 }
 
-.sidebarLogin footer a {
+.sidebarLogin footer button {
     display: flex;
     align-items: center;
     justify-content: center;
 
     height: 3.125rem;
+    width: 100%;
     padding: 0 1.5rem;
 
     background: transparent;
@@ -40,8 +41,9 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-.sidebarLogin footer a:hover{
+.sidebarLogin footer button:hover{
     background: var(--green-500);
     color: var(--white);
+    cursor: pointer;
 } 
 

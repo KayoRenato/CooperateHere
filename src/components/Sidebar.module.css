@@ -41,12 +41,13 @@
     padding: 1.5rem 2rem 2rem;
 }
 
-.sidebar footer a {
+.sidebar footer button {
     display: flex;
     align-items: center;
     justify-content: center;
 
     height: 3.125rem;
+    width: 100%;
     padding: 0 1.5rem;
 }
 
@@ -69,29 +70,31 @@
 .editProfile:hover{
     background: var(--green-500);
     color: var(--white);
+    cursor: pointer;
 } 
 
 .signOut {
     background: transparent;
     color: var(--red-500);
-
+    
     border: 1px solid var(--red-500);
     border-radius: 8px;
-
+    
     font-weight: bold;
     text-align: center;
     gap: 0.625rem;
-
+    
     text-decoration: none;
-
+    
     transition: background-color 0.2s, color 0.2s;
 }
 
 .signOut:hover{
     background: var(--red-500);
     color: var(--white);
+    cursor: pointer;
 } 
 
-footer a + a{
+footer button + button{
     margin-top: 1.5rem;
 }
