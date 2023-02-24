@@ -2,9 +2,13 @@ import styles from './Sidebar.module.css'
 import { PencilLine, SignOut } from 'phosphor-react'
 import { Avatar } from './Avatar';
 
+interface SidebarProps {
+    handleEditProfile: () => void;
+    handleSignOut: () => void;
 
+}
 
-export function Sidebar() {
+export function Sidebar(props: SidebarProps) {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.cover}>
@@ -17,12 +21,12 @@ export function Sidebar() {
                 <span>Front-end Dev</span>
             </div>
             <footer>
-                <a href="#" className={styles.editProfile}>
+                <button className={styles.editProfile} onClick={props.handleEditProfile} >
                     <PencilLine size={20} /> Edit
-                </a>
-                <a href="#" className={styles.signOut}>
+                </button>
+                <button className={styles.signOut} onClick={props.handleSignOut}>
                     <SignOut size={20} /> Logout
-                </a>
+                </button>
             </footer>
         </aside>
     );

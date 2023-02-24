@@ -51,6 +51,7 @@
     padding: 0 1.5rem;
 }
 
+
 .editProfile {
     background: transparent;
     color: var(--green-500);
@@ -67,34 +68,40 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-.editProfile:hover{
+.editProfile:hover {
     background: var(--green-500);
     color: var(--white);
     cursor: pointer;
-} 
+}
+
 
 .signOut {
     background: transparent;
     color: var(--red-500);
-    
+
     border: 1px solid var(--red-500);
     border-radius: 8px;
-    
+
     font-weight: bold;
     text-align: center;
     gap: 0.625rem;
-    
+
     text-decoration: none;
-    
+
     transition: background-color 0.2s, color 0.2s;
 }
 
-.signOut:hover{
+.signOut:hover {
     background: var(--red-500);
     color: var(--white);
     cursor: pointer;
-} 
+}
 
-footer button + button{
+.signOut:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--red-500);
+}
+
+footer button+button {
     margin-top: 1.5rem;
 }

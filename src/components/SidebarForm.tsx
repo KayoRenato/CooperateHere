@@ -1,7 +1,12 @@
 import styles from './SidebarForm.module.css'
-import { Checks } from 'phosphor-react'
+import { Checks, X } from 'phosphor-react'
 
-export function SidebarForm() {
+interface SidebarFormProps {
+    handleSubmit: () => void;
+    handleCancel: () => void;
+}
+
+export function SidebarForm(props: SidebarFormProps) {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.cover}>
@@ -12,14 +17,18 @@ export function SidebarForm() {
                 <div className={styles.formContent}>
                     <strong>Url Avatar</strong>
                     <input type="url" name='avatar' />
-                    <strong>Name</strong>
+                    <strong className={styles.requiredInput}>Name</strong>
                     <input type="text" name='name' required />
-                    <strong>Rule</strong>
+                    <strong className={styles.requiredInput}>Rule</strong>
                     <input type="text" name='rule' required />
                 </div>
                 <footer>
-                    <button type='submit' className={styles.editProfile} >
+                    <button type='submit' className={styles.editProfile} onClick={props.handleSubmit}>
                         <Checks size={20} /> Save
+                    </button>
+                    {/* TODO - Maybe change Button Cancel to Tag A */}
+                    <button className={styles.cancel} onClick={props.handleCancel}>
+                        <X size={20} /> Cancel
                     </button>
                 </footer>
             </form>
