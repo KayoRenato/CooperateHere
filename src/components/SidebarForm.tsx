@@ -11,7 +11,7 @@ export function SidebarForm(props: SidebarFormProps) {
         <aside className={styles.sidebar}>
             <div className={styles.cover}>
                 <img className={styles.cover}
-                    src="https://images.unsplash.com/photo-1676458482060-744386b5c273?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" />
+                    src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80" />
             </div>
             <form className={styles.formProfile} onSubmit={() => { }}>
                 <div className={styles.formContent}>

@@ -7,9 +7,11 @@
 
 .cover {
     width: 100%;
-    height: 4.5rem;
+    height: 8.375rem;
     object-fit: cover;
     opacity: .95;
+    transform:rotate(90deg);
+
 }
 
 .sidebarLogin footer {
@@ -46,3 +48,14 @@
     color: var(--white);
     cursor: pointer;
 } 
+
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 4rem;
+    width: 100%;
+    padding: 0 1.5rem;
+}

@@ -11,6 +11,7 @@
     height: 8.375rem;
     object-fit: cover;
     opacity: .95;
+    transform:rotate(90deg);
 }
 
 .formProfile {
