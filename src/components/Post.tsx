@@ -9,6 +9,7 @@ import { renderContent } from './ContentPost';
 import { dateRelativeToNowFormatted, titleDateFormatted, dateTimeISO } from '../Utils/formatDate';
 import { PostProps } from '../interfaces/IPost';
 import { CommentProps } from '../interfaces/IComment';
+import userData from '../context/userData';
 
 
 export function Post({ author, publishedAt, comments }: PostProps) {
@@ -48,6 +49,10 @@ export function Post({ author, publishedAt, comments }: PostProps) {
     const [showComments, setShowComments] = useState(commentsList);
     const isNewCommentEmpty = newComment.length === 0;
 
+    const { userComment } = userData()
+
+    const hasUserComment = !!userComment?.name && !!userComment?.role
+
     function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
         setNewComment(event.target.value);
     }
@@ -60,8 +65,8 @@ export function Post({ author, publishedAt, comments }: PostProps) {
         const currentComment: CommentProps = {
             id: uuidv4(),
             author: {
-                name: 'Kayo Renato',
-                avatarUrl: 'https://github.com/KayoRenato.png'
+                name: userComment!.name,
+                avatarUrl: userComment!.avatar
             },
             comments: treatedComment,
             publishedAt: new Date()
@@ -78,7 +83,6 @@ export function Post({ author, publishedAt, comments }: PostProps) {
         setShowComments(commentsLastDeleted);
 
     }
-
 
     return (
         <article className={styles.post}>
@@ -104,8 +108,10 @@ export function Post({ author, publishedAt, comments }: PostProps) {
                     {clapNumber}
                 </button>
             </div>
-            <div className={styles.commentForm}>
-                <strong>Cooperate here</strong>
+
+            {hasUserComment ? (
+                <div className={styles.commentForm}>
+                    <strong>Cooperate here</strong>
                 <form onSubmit={handleCreateNewComment}>
                     <textarea
                         placeholder='Send your feedback'
@@ -120,9 +126,16 @@ export function Post({ author, publishedAt, comments }: PostProps) {
                     </footer>
                 </form>
             </div>
+            ) : (
+                <>
+                    <br />
+                    <hr />
+                    <br />
+                </>
+            )}
+
             <div className={styles.commentList}>
                 {showComments.map(item => {
-                    // console.log(item)
                     return (
                         <Comment
                             key={item.id}

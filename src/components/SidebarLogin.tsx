@@ -1,13 +1,8 @@
 import styles from './SidebarLogin.module.css'
 import { User } from 'phosphor-react'
 
-interface SidebarProps {
-    handleSignIn: () => void;
+export function SidebarLogin() {
 
-}
-
-
-export function SidebarLogin(props: SidebarProps) {
     return (
         <aside className={styles.sidebarLogin}>
             <div className={styles.cover}>
@@ -18,7 +13,7 @@ export function SidebarLogin(props: SidebarProps) {
             <span className={styles.info}>Login to comment</span>
 
             <footer>
-                <button onClick={props.handleSignIn}>
+                <button onClick={() => console.log('login')}>
                     <User size={20} /> Login
                 </button>
             </footer>

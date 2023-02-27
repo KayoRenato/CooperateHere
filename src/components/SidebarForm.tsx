@@ -1,38 +1,28 @@
 import styles from './SidebarForm.module.css'
 import { Checks, X } from 'phosphor-react'
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { UserProps } from '../interfaces/IUser'
+import userData from '../context/userData'
 
-interface SidebarFormProps {
-    handleSubmit: () => void;
-    handleCancel: () => void;
-}
+export function SidebarForm() {
 
-export function SidebarForm(props: SidebarFormProps) {
+    const { setUserComment } = userData()
 
-    const [name, setName] = useState('')
-    const [url, setUrl] = useState('')
-    const [rule, setRule] = useState('')
-
-    console.log('Name: ', name)
-    console.log('URL: ', url)
-    console.log('Rule: ', rule)
-
-    const handleSubmit = (e: any) => {
-        e.preventDefault()
+    const defaultValues: UserProps = {
+        name: '',
+        avatar: '',
+        role: ''
     }
 
-    const handleUrl = (e: any) => {
-        setUrl(e.target.value)
-    }
+    const { handleSubmit, register } = useForm({ defaultValues })
 
-    const handleName = (e: any) => {
-        setName(e.target.value)
+    const UserDataForm = (data: UserProps) => {
+        if (data.name && data.role) {
+            data.avatar = data.avatar ? data.avatar : 'https://api.dicebear.com/5.x/fun-emoji/svg?backgroundColor=d1d4f9'
+            setUserComment!(data)
+        }
     }
-
-    const handleRule = (e: any) => {
-        setRule(e.target.value)
-    }
-
 
     return (
         <aside className={styles.sidebar}>
@@ -40,45 +30,34 @@ export function SidebarForm(props: SidebarFormProps) {
                 <img className={styles.cover}
                     src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80" />
             </div>
-            <form className={styles.formProfile} onSubmit={handleSubmit}>
+            <form className={styles.formProfile} onSubmit={handleSubmit(UserDataForm)}>
                 <div className={styles.formContent}>
                     <strong>Url Avatar</strong>
-                    <input
-                        type="url"
-                        name='avatar'
-                        value={url}
-                        onChange={handleUrl}
-                    />
+                    <input type="url"
+                        placeholder='https://... '
+                        autoFocus
+                        {...register('avatar')} />
 
                     <strong className={styles.requiredInput}>Name</strong>
                     <input type="text"
-                        name='name'
-                        value={name}
-                        onChange={handleName}
-                        required
-                    />
+                        placeholder='Insert your name'
+                        {...register('name', { required: true })} />
 
-                    <strong className={styles.requiredInput}>Rule</strong>
-                    <input
-                        type="text"
-                        name='rule'
-                        value={rule}
-                        onChange={handleRule}
-                        required
-                    />
+                    <strong className={styles.requiredInput}>Role</strong>
+                    <input type="text"
+                        placeholder='Type your position'
+                        {...register('role', { required: true })} />
                 </div>
                 <footer>
                     <button
-                        className={styles.editProfile}
-                        type='submit'
-                    >
+                        className={styles.editProfile} type='submit'>
                         <Checks size={20} /> Save
                     </button>
-                    <button type='submit' className={styles.cancel} onClick={props.handleCancel}>
+                    <button className={styles.cancel} onClick={() => console.log('Cancel')}>
                         <X size={20} /> Cancel
                     </button>
                 </footer>
             </form>
-        </aside>
+        </aside >
     );
 }

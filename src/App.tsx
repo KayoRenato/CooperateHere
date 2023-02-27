@@ -3,12 +3,12 @@ import styles from './App.module.css'
 
 import { Post } from './components/Post.jsx'
 import { Header } from "./components/Header"
-import { Sidebar } from "./components/Sidebar"
 import { PostProps } from './interfaces/IPost'
 import { v4 as uuidv4 } from 'uuid';
-import { SidebarLogin } from './components/SidebarLogin'
-import { SidebarForm } from './components/SidebarForm'
-import { useState } from 'react'
+import userData from './context/userData'
+import { renderSidebar } from './components/SidebarMain'
+
+
 
 function App() {
 
@@ -43,60 +43,10 @@ function App() {
     }
   ]
 
-  const [sidebarLogin, setSidebarLogin] = useState(true)
-  const handleLogin = () => {
-    setSidebarLogin(false)
-    setSidebarForm(true)
-  }
+  const { userComment, handleLogout } = userData()
 
-  const [sidebarForm, setSidebarForm] = useState(false)
-  const handleEditProfile = () => {
-    setSidebar(false)
-    setSidebarForm(true)
-  }
-  const handleFormSave = () => {
-
-    setSidebar(true)
-    setSidebarForm(false)
-  }
-
-  const [sidebar, setSidebar] = useState(false)
-  const handleFormClose = () => {
-    // //TODO Check context API of Name, UrlAvatar and Rules is empty
-    // //! If empty - Render Login Component
-    // if (ContextAPI) {
-    //   setSidebarForm(false)
-    //   setSidebarLogin(true)
-    //   setSidebar(false)
-    // }
-    // //! Else - Render Sidebar Component
-    // else {
-    //   setSidebarLogin(false)
-    //   setSidebarForm(false)
-    //   setSidebar(true)
-    // }
-  }
-  const handleSignOut = () => {
-    // TODO ContextApi Clear with params profile
-    setSidebarForm(false)
-    setSidebar(false)
-    setSidebarLogin(true)
-  }
-
-  const renderSidebar = function () {
-    return (
-
-      sidebarLogin ?
-        <SidebarLogin handleSignIn={handleLogin} />
-        : sidebarForm ?
-          <SidebarForm handleSubmit={handleFormSave} handleCancel={handleFormClose} />
-          :
-          <Sidebar handleEditProfile={handleEditProfile} handleSignOut={handleSignOut} />
-    );
-  }
 
   return (
-
     <>
       <Header />
       <div className={styles.wrapper}>
