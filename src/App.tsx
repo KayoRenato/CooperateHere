@@ -1,13 +1,11 @@
 import './global.css'
 import styles from './App.module.css'
 
-import { Post } from './components/Post.jsx'
+import { Post } from './components/PostComponent/Post'
 import { Header } from "./components/Header"
-import { PostProps } from './interfaces/IPost'
 import { v4 as uuidv4 } from 'uuid';
-import userData from './context/userData'
-import { renderSidebar } from './components/SidebarMain'
-
+import { renderSidebar } from './components/SidebarComponent/SidebarMain'
+import { PostProps } from './interfaces/IPost';
 
 
 function App() {
@@ -21,7 +19,7 @@ function App() {
         avatarUrl: 'https://github.com/tthiagocarlosdev.png'
       },
       publishedAt: new Date('2023-02-16 23:49:00'),
-      comments: [
+      contents: [
         { type: 'paragraph', text: 'Hey Guys 🤟🏼' },
         { type: 'paragraph', text: `Another project for my portfolio! It's a project made with Next. I will be happy if you rate and comment on improvements.` },
         { type: 'link', title: 'Crud Next', url: 'https://crudnext.kayoio.com' },
@@ -35,16 +33,13 @@ function App() {
         avatarUrl: 'https://github.com/andretc94.png',
       },
       publishedAt: new Date('2023-02-18 07:02:34'),
-      comments: [
+      contents: [
         { type: 'paragraph', text: 'Hello folks,' },
         { type: 'paragraph', text: `I just finished the Monty Hall game exploring some exciting points about probability. I hope you like and cooperate to better. ` },
         { type: 'link', title: 'Monty Hall Game', url: 'https://montyhall.kayoio.com/' },
       ]
     }
   ]
-
-  const { userComment, handleLogout } = userData()
-
 
   return (
     <>
@@ -60,7 +55,7 @@ function App() {
                 id={post.id}
                 author={post.author}
                 publishedAt={post.publishedAt}
-                comments={post.comments}
+                contents={post.contents}
               />
             )
           })}

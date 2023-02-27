@@ -1,11 +1,19 @@
 import styles from './Sidebar.module.css'
 import { PencilLine, SignOut } from 'phosphor-react'
-import { Avatar } from './Avatar';
-import userData from '../context/userData';
+import userData from '../../context/userData';
+import { Avatar } from '../Avatar';
 
 
-export function Sidebar() {
-    const { userComment } = userData()
+interface SideLoggedProps {
+    handleEditProfile: () => void;
+}
+
+export function Sidebar(props: SideLoggedProps) {
+    const { userComment, setUserComment } = userData()
+
+    function handleLogout() {
+        setUserComment!(null)
+    }
 
     return (
         <aside className={styles.sidebar}>
@@ -19,10 +27,10 @@ export function Sidebar() {
                 <span>{userComment?.role}</span>
             </div>
             <footer>
-                <button className={styles.editProfile} onClick={() => console.log('Edit Profile')} >
+                <button className={styles.editProfile} onClick={props.handleEditProfile} >
                     <PencilLine size={20} /> Edit
                 </button>
-                <button className={styles.signOut} onClick={() => console.log('Log Out Profile')}>
+                <button className={styles.signOut} onClick={handleLogout}>
                     <SignOut size={20} /> Logout
                 </button>
             </footer>

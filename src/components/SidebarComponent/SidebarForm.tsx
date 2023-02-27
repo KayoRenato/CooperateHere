@@ -1,13 +1,17 @@
 import styles from './SidebarForm.module.css'
 import { Checks, X } from 'phosphor-react'
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { UserProps } from '../interfaces/IUser'
-import userData from '../context/userData'
+import userData from '../../context/userData';
+import { UserProps } from '../../interfaces/IUser';
 
-export function SidebarForm() {
 
-    const { setUserComment } = userData()
+interface SideFormProps {
+    handleCancel: () => void;
+}
+
+export function SidebarForm(props: SideFormProps) {
+
+    const { userComment, setUserComment } = userData()
 
     const defaultValues: UserProps = {
         name: '',
@@ -53,7 +57,7 @@ export function SidebarForm() {
                         className={styles.editProfile} type='submit'>
                         <Checks size={20} /> Save
                     </button>
-                    <button className={styles.cancel} onClick={() => console.log('Cancel')}>
+                    <button type='reset' className={styles.cancel} onClick={props.handleCancel}>
                         <X size={20} /> Cancel
                     </button>
                 </footer>

@@ -1,18 +1,18 @@
 import styles from './Post.module.css'
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 import { HandsClapping } from 'phosphor-react'
-import { Avatar } from "./Avatar";
-import { Comment } from './Comment'
+import { Avatar } from "../Avatar";
+import { Comment } from '../Comment'
 import { renderContent } from './ContentPost';
-import { dateRelativeToNowFormatted, titleDateFormatted, dateTimeISO } from '../Utils/formatDate';
-import { PostProps } from '../interfaces/IPost';
-import { CommentProps } from '../interfaces/IComment';
-import userData from '../context/userData';
+import { CommentProps } from '../../interfaces/IComment';
+import { PostProps } from '../../interfaces/IPost';
+import userData from '../../context/userData';
+import { dateRelativeToNowFormatted, dateTimeISO, titleDateFormatted } from '../../Utils/formatDate';
 
 
-export function Post({ author, publishedAt, comments }: PostProps) {
+export function Post({ author, publishedAt, contents }: PostProps) {
 
     const commentsList: CommentProps[] = [
         {
@@ -97,7 +97,7 @@ export function Post({ author, publishedAt, comments }: PostProps) {
                 <time title={titleDateFormatted(publishedAt)} dateTime={dateTimeISO(publishedAt)}> {dateRelativeToNowFormatted(publishedAt)} </time>
             </header>
             <div className={styles.content}>
-                {renderContent(comments)}
+                {renderContent(contents)}
             </div>
             <div className={styles.clap}>
                 <button title='clap' onClick={() => setClapNumber(clapNumber + 1)}>

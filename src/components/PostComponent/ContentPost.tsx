@@ -1,10 +1,11 @@
 import { ArrowSquareOut } from 'phosphor-react'
+import { ContentProps } from '../../interfaces/IPost'
 import styles from './ContentPost.module.css'
-import { CommentProps } from '../interfaces/IPost'
 
 
-export function renderContent(comments: CommentProps[]) {
-    return comments.map((comment: CommentProps, idx: any = comment) => {
+
+export function renderContent(comments: ContentProps[]) {
+    return comments.map((comment: ContentProps, idx: any = comment) => {
         if (comment.type === 'paragraph') {
             return (
                 <p key={idx}>{comment.text}</p>
