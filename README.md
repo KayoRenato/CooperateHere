@@ -35,16 +35,16 @@ I created this project to practice fundamental concepts of Hooks like useContext
 ## :sparkles: Features ##
 
 :ballot_box_with_check: Create comments after realizing Login on uncontrolled 
-Form by exploring useContext, useEffect, useForm, and useState;
+Form by exploring useContext, useEffect, useForm, and useState;  
 :ballot_box_with_check: Changes the sidebar based on the commenter's status by 
-exploiting useContext, useEffect, and useState;
+exploiting useContext, useEffect, and useState;  
 :ballot_box_with_check: Allow just owners of the comments can delete them by 
-exploring useState;  
+exploring useState;   
 :ballot_box_with_check: Work with relative date format in Posts by exploring 
-date-fns;
+date-fns;  
 :ballot_box_with_check: Deploy the application on a server with a custom domain;
-:black_square_button: Persist comment data;
-:black_square_button: Creating a flow of entries and persistence of Posts.
+:black_square_button: Persist comment data;  
+:black_square_button: Creating a flow of entries and persistence of Posts.  
 
 ## :computer: Technologies & Requirements ##
 
@@ -82,7 +82,7 @@ $ npm i
 # Run the project
 $ npm run dev
 
-# The server will initialize in the <http://localhost:3333>
+# The server will initialize in the <http://localhost:5173>
 ```
 
 ## :memo: License ##
