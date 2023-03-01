@@ -30,10 +30,8 @@ export function SidebarForm(props: SideFormProps) {
 
     return (
         <aside className={styles.sidebar}>
-            <div className={styles.cover}>
                 <img className={styles.cover}
                     src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80" />
-            </div>
             <form className={styles.formProfile} onSubmit={handleSubmit(UserDataForm)}>
                 <div className={styles.formContent}>
                     <strong>Url Avatar</strong>

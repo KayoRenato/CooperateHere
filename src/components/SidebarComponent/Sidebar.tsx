@@ -17,10 +17,8 @@ export function Sidebar(props: SideLoggedProps) {
 
     return (
         <aside className={styles.sidebar}>
-            <div className={styles.cover}>
                 <img className={styles.cover}
                     src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80" />
-            </div>
             <div className={styles.profile}>
                 <Avatar src={userComment?.avatar} hasBorder />
                 <strong>{userComment?.name}</strong>
