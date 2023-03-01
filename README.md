@@ -28,17 +28,23 @@
 
 ## :dart: About ##
 
-I create this project to practice fundamental concepts of Hooks like useContext,
- useState, and UseEffect in a CRUD basic with integration on Firestore.
+I created this project to practice fundamental concepts of Hooks like useContext,
+ useState, useEffect, useForm, and Date Formatting in a cooperation application
+  through comments.
 
 ## :sparkles: Features ##
 
-:ballot_box_with_check: Create and edit customer exploring useContext and useState;  
-:ballot_box_with_check: List customer exploring useEffect and useState;  
-:ballot_box_with_check: Delete customer exploring useEffect;  
-:ballot_box_with_check: Data persistence on Firestore;  
-:ballot_box_with_check: Deploy of application with environment variables dynamic and domain name custom;  
-:black_square_button: Exploring other Hooks
+:ballot_box_with_check: Create comments after realizing Login on uncontrolled 
+Form by exploring useContext, useEffect, useForm, and useState;
+:ballot_box_with_check: Changes the sidebar based on the commenter's status by 
+exploiting useContext, useEffect, and useState;
+:ballot_box_with_check: Allow just owners of the comments can delete them by 
+exploring useState;  
+:ballot_box_with_check: Work with relative date format in Posts by exploring 
+date-fns;
+:ballot_box_with_check: Deploy the application on a server with a custom domain;
+:black_square_button: Persist comment data;
+:black_square_button: Creating a flow of entries and persistence of Posts.
 
 ## :computer: Technologies & Requirements ##
 
@@ -47,13 +53,16 @@ The following dependencies were used in this project:
 - Next
 - React
 - React-dom
-- Tailwindcss
+- React-hook-form
+- Date-fns 
+- Phosphor-react
 - Typescript
-- Firebase
+- Vitejs
+- UUID
 
 ## :clapper: Show Off ##
 
-<img src="public/crudnext.gif" alt="show off application" >
+<img src="public/coopehere.gif" alt="show off application" >
 
 ## :checkered_flag: Starting ##
 
@@ -61,7 +70,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone git@github.com:KayoRenato/CrudNext.git <Project-Name> 
+$ git clone git@github.com:KayoRenato/CooperateHere.git <Project-Name> 
 
 
 # Access
@@ -69,13 +78,6 @@ $ cd <Project-Name>
 
 # Install dependencies
 $ npm i
-
-# Create Auth Firebase Project and get environment variables:
-  - apiKey 
-  - authdDomain 
-  - projectId  
-
-# Create file .env in root like sample.env change environment variables
 
 # Run the project
 $ npm run dev
@@ -89,9 +91,9 @@ This project is under license from MIT. For more details, see the [LICENSE](Lice
 
 ## :gem: Deploy & Repository ##
 
-<a href="https://crudnext.kayoio.com/" target="_blank">:rocket: Link to solution deployed</a>
+<a href="https://coopehere.kayoio.com/" target="_blank">:rocket: Link to solution deployed</a>
 
-<a href="https://github.com/KayoRenato/CrudNext" target="_blank">:octopus: Link to repository</a>
+<a href="https://github.com/KayoRenato/CooperateHere" target="_blank">:octopus: Link to repository</a>
 
 <br>
 

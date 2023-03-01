@@ -5,7 +5,6 @@ interface UserContextProps {
     userComment?: UserProps | null;
     setUserComment?: (userComment: UserProps | null) => void;
     handleLogin?: (user: UserProps) => void;
-    handleLogout?: () => void;
 
 }
 
@@ -17,20 +16,15 @@ export function UserProvider(props: any) {
 
     function handleLogin(user: UserProps) {
         setUserComment(user);
-        console.log(user);
     }
 
-    function handleLogout() {
-        console.log('logout');
-    }
 
     return (
         <UserContext.Provider
             value={{
                 userComment,
                 setUserComment,
-                handleLogin,
-                handleLogout
+                handleLogin
             }}>
             <>
                 {props.children}
