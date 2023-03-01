@@ -39,7 +39,7 @@ export function renderSidebar() {
             setSidebar(false)
             AbortSignUp()
         }
-    }, [hasUserComment])
+    }, [hasUserComment, userComment])
 
     return (
         <>
